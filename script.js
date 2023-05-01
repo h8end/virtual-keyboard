@@ -16,7 +16,7 @@ function init() {
 
 init();
 
-document.keydown = function (event) {
+document.onkeypress = function (event) {
     console.log(event.code);
     console.log(event.keyCode);
     document.querySelectorAll('body .k-key').forEach(function(element) {
