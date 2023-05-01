@@ -25,5 +25,20 @@ init();
 document.keydown = function (event) {
     console.log(event.code);
     console.log(event.keyCode);
+    document.querySelectorAll('body .k-key').forEach(function(element) {
+        element.classList.remove('active');
+    });
+
     document.querySelector('body .k-key[data = "'+event.keyCode+'"]').classList.add('active');
 };
+
+document.querySelectorAll('body .k-key').forEach(function (element) {
+    element.onclick = function(event) {
+        document.querySelectorAll('body .k-key').forEach(function(element) {
+            element.classList.remove('active');
+        });
+        let code = this.getAttribute('data');
+        this.classList.add('active');
+        console.log(code);
+    };
+});
